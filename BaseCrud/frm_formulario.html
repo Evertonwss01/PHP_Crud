@@ -1,29 +1,119 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro</title>
+        <title>Cadastrar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-image: linear-gradient(to right, greenyellow, lightskyblue);
+            }
+            
+            .box{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(0,0,0,0.7);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+            }
+            fieldset{
+                border: 3px solid dodgerblue;
+            }
+            
+            legend{
+                padding: 10px;
+                border: 2px solid dodgerblue;
+                text-align: center;
+            }
+            
+            .Userbox{
+                background: none;
+                border: none;
+                border-bottom: 1px solid white;
+                outline: none;
+                color: white;
+                font-size: 15px;
+                width: 100%;
+                letter-spacing: 2px;
+                padding: 5px;
+            }
+            
+            .inputBox{
+                position: relative;
+                padding-top: 20px;
+            }
+            
+            .labelbox{
+                padding: 5px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                pointer-events: none;
+                transition: .5s;
+               
+            }
+            #submit{
+                
+                width: 100%;
+                padding: 8px;
+                border-radius: 8px;
+                background-color: dodgerblue;
+                font-size: 17px;
+                color: white;
+                cursor: pointer;   
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            
+        </style>
+        
     </head>
     <body>
-        <form action="inserir_Funcionario.php" method="POST">
-            
-            <label for="nome"> Nome: </label>
-            <input type="text" id="nome" name="nome" />
-            
-            <label for="rg">RG: </label>
-            <input type="text" id="rg" name="rg"/>
-            
-            <label for="idade">Idade: </label>
-            <input type="number" id="idade" name="idade"/>
-            
-            <input type="radio" name="sexo" value="Masculino"/>
-            <label>Masculino</label>
-            
-            <input type="radio"  name="sexo" value="Feminino"/>
-            <label>Feminino</label>
-            
-            <input type="submit" value="Cadastrar"/>
-        </form>
+        <div class="box">
+            <a href="home.php">< Voltar</a>
+            <form action="inserir_Funcionario.php" method="POST">
+                <fieldset>
+                    <legend><b>Criar Cadastro</b></legend>
+                <br>
+                
+                <div class="inputBox">
+                    <label for="nome" class="labelbox"> Nome: </label>
+                    <input type="text" id="nome" name="nome" class="Userbox" placeholder=""/>
+                </div><br>
+                <div class="inputBox">
+                    <label for="rg" class="labelbox">RG: </label>
+                    <input type="text" id="rg" name="rg" class="Userbox"/>
+                </div><br>
+                <div class="inputBox">  
+                    <label for="idade" class="labelbox">Idade: </label>
+                    <input type="number" id="idade" name="idade" class="Userbox"/>
+                </div>
+                <p>Sexo:</p>
+                <div class="inputBox">
+                    <input type="radio" name="sexo" value="Masculino" required/>
+                    <label for="Masculino">Masculino</label>
+                
+               
+                    <input type="radio"  name="sexo" value="Feminino"/>
+                    <label for="Feminino">Feminino</label>
+               
+                
+                    <input type="radio"  name="sexo" value="Outros"/>
+                    <label for="Outros">Outros</label>
+                
+                </div>
+                    <br>
+                    <input type="submit" value="Cadastrar" name="submit" id="submit"/>
+                <br>
+                </fieldset>
+            </form>
+        </div>
     </body>
 </html>
