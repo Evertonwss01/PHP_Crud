@@ -1,4 +1,8 @@
 <?php
+    // Iniciar uma sessão //
+    session_start();
+
+
     // Verificar ser os dados inceridos no formulario estão sendo passados para esse pagina //
     // print_r($_REQUEST);
     
@@ -19,7 +23,6 @@ if(isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])
     $senha = $_POST['senha'];
     
     // Com os Printers para textar se estão sendo passados mesmo os valores //
-    
     // print_r("Login: ".$email);
     // print_r("<br>Senha: ".$senha);
     
@@ -30,7 +33,6 @@ if(isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])
     $resultSet = $conexao->query($sql);
     
     // Mais Printers para exibir o 'comando Sql' e se o numero de linhas é maior que 0 // 
-    
     // print_r($resultSet);
     // print_r("<br>".$sql);
     
@@ -44,14 +46,22 @@ if(isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])
         
         //print_r("Não existe esse registro no Banco.");
         header('Location: Tela-login.html');
+        
+        // Destruir qualquer sessão que estaja criada //
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
     }
     else{
         
         //print_r("Existe esse registro no Banco.");
         header('Location: listar_funcionario.php');
+        
+        // Utilizar Sessão //
+        $_SESSION['email'] = $email;
+        $_SESSION['senha']= $senha;
     }
     
 }else{
        header('Location: Tela-login.html');
     }
-?>
+
