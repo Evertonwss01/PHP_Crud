@@ -17,6 +17,8 @@ $dados = mysqli_fetch_assoc($resultado);
 $nome = $dados['nome_funcionario'];
 $rg =$dados['rg_funcionario'];
 $id = $dados['id_funcionario'];
+$email = $dados['email'];
+$senha = $dados['senha'];
 $idade = $dados['idade'];
 $sexo = $dados['sexo'];
 
@@ -103,18 +105,27 @@ $sexo = $dados['sexo'];
                         <br>
                         <label for="rg" >RG: </label>
                         <input type="text" name="rg_" value="<?php echo $rg?>" class="inputBox">
-                     
+                        
+                        <br>
+                        <label for="email">Email: </label>
+                        <input type="email" name="email" class="inputBox" value="<?php echo $email?>"/>
+                        
+                        <br>
+                        <label for="senha">Senha: </label>
+                        <input type="password" name="senha" class="inputBox" value="<?php echo $senha?>"/>
+                        
+                        <br>
                         <label for="idade" class="labelBox">Idade: </label>
                         <input type="number" name="idade_" value="<?php echo $idade?>" class="inputBox">
                     </div>
                     <label for="rg" >Sexo: </label>
-                        <input type="radio" name="sexo_" value="Masculino"/>
+                        <input type="radio" name="sexo_" value="Masculino" <?php echo $sexo == 'Masculino' ? "checked" : '' ?>/>
                         <label for="sexo">Masculino</label>
 
-                        <input type="radio"  name="sexo_" value="Feminino"/>
+                        <input type="radio"  name="sexo_" value="Feminino" <?php echo $sexo == 'Feminino' ? "checked": ''?> />
                         <label for="sexo">Feminino</label>
                         
-                        <input type="radio"  name="sexo_" value="Outros"/>
+                        <input type="radio"  name="sexo_" value="Outros" <?php echo $sexo == 'Outros' ? "checked" : ''?>/>
                         <label for="sexo">Outros</label>
                         <br><br>
                         <input type="submit" value="Atualizar" class="butao"/>
