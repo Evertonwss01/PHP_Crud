@@ -14,4 +14,8 @@ select * from funcionario;
 alter table funcionario add senha varchar(30) after email;
 
 /*Query utilizada na validação do Usuario se existia ou não no Banco*/
-/*SELECT * FROM funcionario WHERE email = 'junior.melo@gmail.com' AND senha = 'geraldinho';*/
+/*SELECT * FROM funcionario WHERE email = 'junior.melo@gmail.com' AND senha = 'geraldinho
+'
+Usuario text
+      email: junior.melo@gmail.com
+      senha: geraldinho
